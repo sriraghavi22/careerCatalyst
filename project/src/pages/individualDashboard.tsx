@@ -136,7 +136,7 @@ function IndividualDashboard() {
 
     try {
       const response = await fetch(
-        `http://localhost:5001/upload_resume?job_category=${encodeURIComponent(jobCategory)}&job_role=${encodeURIComponent(jobRole)}`,
+        `https://careercatalyst-flask.onrender.com/upload_resume?job_category=${encodeURIComponent(jobCategory)}&job_role=${encodeURIComponent(jobRole)}`,
         {
           method: 'POST',
           body: formData,
@@ -183,7 +183,7 @@ function IndividualDashboard() {
     formData.append('pdf', profileFile);
 
     try {
-      const response = await fetch(`http://localhost:5001/upload/${userId}`, {
+      const response = await fetch(`https://careercatalyst-flask.onrender.com/upload/${userId}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -214,7 +214,7 @@ function IndividualDashboard() {
 
     setJobLoading(true);
     try {
-      const response = await fetch(`http://localhost:5001/recommend-jobs`, {
+      const response = await fetch(`https://careercatalyst-flask.onrender.com/recommend-jobs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
