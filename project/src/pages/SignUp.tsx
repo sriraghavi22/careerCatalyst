@@ -18,7 +18,7 @@ function SignUp() {
   useEffect(() => {
     const fetchInstitutions = async () => {
       try {
-        const response = await axios.get<{ _id: string; name: string }[]>('http://localhost:3000/institutions/institutions');
+        const response = await axios.get<{ _id: string; name: string }[]>('https://careercatalyst-node.onrender.com/institutions/institutions');
         setInstitutions(response.data);
       } catch (err) {
         setError('Failed to fetch institutions');
@@ -42,7 +42,7 @@ function SignUp() {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/individuals/register', formData, {
+      const response = await axios.post('https://careercatalyst-node.onrender.com/individuals/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
