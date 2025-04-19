@@ -64,7 +64,7 @@ const Jobs = () => {
       try {
         const token = localStorage.getItem('token');
         if (!token) throw new Error('No authentication token found');
-        const response = await fetch('http://localhost:3000/institutions/api/jobs', {
+        const response = await fetch('https://careercatalyst-node.onrender.com/institutions/api/jobs', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!response.ok) throw new Error('Failed to fetch jobs');
@@ -83,7 +83,7 @@ const Jobs = () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) throw new Error('No authentication token found');
-      const response = await fetch(`http://localhost:3000/institutions/api/jobs/${jobId}/matches`, {
+      const response = await fetch(`https://careercatalyst-node.onrender.com/institutions/api/jobs/${jobId}/matches`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!response.ok) throw new Error('Failed to fetch matches');
@@ -124,7 +124,7 @@ const Jobs = () => {
         alert('Please select at least one year and one department');
         return;
       }
-      const response = await fetch('http://localhost:3000/institutions/api/jobs', {
+      const response = await fetch('https://careercatalyst-node.onrender.com/institutions/api/jobs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ const Jobs = () => {
       try {
         const token = localStorage.getItem('token');
         if (!token) throw new Error('No authentication token found');
-        const response = await fetch(`http://localhost:3000/institutions/api/jobs/${jobId}`, {
+        const response = await fetch(`https://careercatalyst-node.onrender.com/institutions/api/jobs/${jobId}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${token}` }
         });
