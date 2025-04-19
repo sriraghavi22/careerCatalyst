@@ -47,7 +47,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
       }
 
       try {
-        const response = await fetch('http://localhost:3000/organizations/me', {
+        const response = await fetch('https://careercatalyst-node.onrender.com/organizations/me', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -157,7 +157,7 @@ const OrgDash: React.FC = () => {
       }
 
       try {
-        const instResponse = await fetch('http://localhost:3000/organizations/institutions', {
+        const instResponse = await fetch('https://careercatalyst-node.onrender.com/organizations/institutions', {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!instResponse.ok) throw new Error('Failed to fetch institutions');
@@ -174,7 +174,7 @@ const OrgDash: React.FC = () => {
           page: currentPage.toString(),
           limit: studentsPerPage.toString(),
         });
-        const stuResponse = await fetch(`http://localhost:3000/organizations/students?${params}`, {
+        const stuResponse = await fetch(`https://careercatalyst-node.onrender.com/organizations/students?${params}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!instResponse.ok) throw new Error('Failed to fetch students');
@@ -209,7 +209,7 @@ const OrgDash: React.FC = () => {
         return;
       }
       setLoading(true);
-      const response = await fetch('http://localhost:5001/report/generate-report', {
+      const response = await fetch('https://careercatalyst-flask.onrender.com/report/generate-report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -245,13 +245,13 @@ const OrgDash: React.FC = () => {
   };
 
   const openPDFInNewTab = (url: string) => {
-    const fullUrl = `http://localhost:3000${url.startsWith('/') ? '' : '/'}${url}`;
+    const fullUrl = `https://careercatalyst-node.onrender.com${url.startsWith('/') ? '' : '/'}${url}`;
     window.open(fullUrl, '_blank');
   };
 
   const openReport = () => {
     if (reportFilePath) {
-      const fullUrl = `http://localhost:3000${reportFilePath.startsWith('/') ? '' : '/'}${reportFilePath}`;
+      const fullUrl = `https://careercatalyst-node.onrender.com${reportFilePath.startsWith('/') ? '' : '/'}${reportFilePath}`;
       window.open(fullUrl, '_blank');
     } else {
       setError('No report available to view.');
