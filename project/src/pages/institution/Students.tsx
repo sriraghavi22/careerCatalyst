@@ -48,7 +48,7 @@ const Students = () => {
         }
 
         const response = await fetch(
-          `http://localhost:3000/individuals/students?year=${selectedYear}&department=${selectedDepartment}&search=${encodeURIComponent(searchQuery)}`,
+          `https://careercatalyst-node.onrender.com/individuals/students?year=${selectedYear}&department=${selectedDepartment}&search=${encodeURIComponent(searchQuery)}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -79,7 +79,7 @@ const Students = () => {
   const viewResume = (resumeFilePath?: string) => {
     if (resumeFilePath) {
       // Construct the URL using the uploads folder and the resumeFilePath
-      const resumeUrl = `http://localhost:3000/${resumeFilePath}`;
+      const resumeUrl = `${resumeFilePath}`;
       window.open(resumeUrl, '_blank');
     }
   };
