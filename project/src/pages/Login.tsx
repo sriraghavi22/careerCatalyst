@@ -14,10 +14,10 @@ function Login() {
     setError('');
     try {
       const endpoint = userType === 'individual'
-        ? 'http://localhost:3000/individuals/login'
+        ? 'https://careercatalyst-node.onrender.com/individuals/login'
         : userType === 'institution'
-        ? 'http://localhost:3000/institutions/login'
-        : 'http://localhost:3000/organizations/login';
+        ? 'https://careercatalyst-node.onrender.com/institutions/login'
+        : 'https://careercatalyst-node.onrender.com/organizations/login';
       interface LoginResponse {
         token: string;
         user: Record<string, any>;
