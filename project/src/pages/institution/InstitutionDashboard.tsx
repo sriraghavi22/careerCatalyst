@@ -33,7 +33,7 @@ const InstitutionDashboard = () => {
         if (!token) throw new Error('No authentication token found');
 
         // Fetch students
-        const studentsResponse = await fetch('http://localhost:3000/individuals/students', {
+        const studentsResponse = await fetch('https://careercatalyst-node.onrender.com/individuals/students', {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!studentsResponse.ok) throw new Error('Failed to fetch students');
@@ -41,7 +41,7 @@ const InstitutionDashboard = () => {
         if (!studentsData.success) throw new Error(studentsData.message || 'Failed to fetch students');
 
         // Fetch jobs
-        const jobsResponse = await fetch('http://localhost:3000/institutions/api/jobs', {
+        const jobsResponse = await fetch('https://careercatalyst-node.onrender.com/institutions/api/jobs', {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!jobsResponse.ok) throw new Error('Failed to fetch jobs');
@@ -57,7 +57,7 @@ const InstitutionDashboard = () => {
         }
 
         const matchesPromises: Promise<Match[]>[] = jobsData.data.map(async (job: Job) => {
-          const matchesResponse: Response = await fetch(`http://localhost:3000/institutions/api/jobs/${job._id}/matches`, {
+          const matchesResponse: Response = await fetch(`https://careercatalyst-node.onrender.com/institutions/api/jobs/${job._id}/matches`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           if (!matchesResponse.ok) throw new Error(`Failed to fetch matches for job ${job._id}`);
