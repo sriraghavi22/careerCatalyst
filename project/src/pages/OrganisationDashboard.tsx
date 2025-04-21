@@ -245,13 +245,13 @@ const OrgDash: React.FC = () => {
   };
 
   const openPDFInNewTab = (url: string) => {
-    const fullUrl = `https://careercatalyst-node.onrender.com${url.startsWith('/') ? '' : '/'}${url}`;
+    const fullUrl = `${url}`;
     window.open(fullUrl, '_blank');
   };
 
   const openReport = () => {
     if (reportFilePath) {
-      const fullUrl = `https://careercatalyst-node.onrender.com${reportFilePath.startsWith('/') ? '' : '/'}${reportFilePath}`;
+      const fullUrl = `${reportFilePath}`;
       window.open(fullUrl, '_blank');
     } else {
       setError('No report available to view.');
