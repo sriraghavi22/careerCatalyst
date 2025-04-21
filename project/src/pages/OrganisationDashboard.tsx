@@ -485,15 +485,6 @@ const OrgDash: React.FC = () => {
                               Generate Report
                             </button>
                           )}
-                          {reportUrl && studentsWithReports.has(student.id) && (
-                            <a
-                              href={reportUrl}
-                              download={`report_${student.name}.pdf`}
-                              className="text-green-600 hover:text-green-800 inline-flex items-center"
-                            >
-                              <Download className="h-4 w-4 mr-1" /> Download
-                            </a>
-                          )}
                         </td>
                       </tr>
                     ))}
