@@ -18,4 +18,6 @@ router.get('/institutions', authMiddleware, getInstitutions);
 // Fetch students with filters, sorting, and pagination (accessible to authenticated organizations)
 router.get('/students', authMiddleware, getStudents);
 
+
+
 export default router;

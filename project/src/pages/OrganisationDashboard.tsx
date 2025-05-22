@@ -39,6 +39,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
       setLoading(true);
       setError(null);
       const token = localStorage.getItem('token');
+      
 
       if (!token) {
         setError('No authentication token found. Please log in.');
@@ -53,8 +54,13 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
           },
         });
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Failed to fetch organization details');
+         const contentType = response.headers.get('content-type');
+  if (contentType && contentType.includes('application/json')) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || 'Failed to fetch organization details');
+  } else {
+    throw new Error('Server returned an invalid response. Please try again later.');
+  }
         }
         const data = await response.json();
         setOrgData(data);

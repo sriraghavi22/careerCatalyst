@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import { Home, Info, Phone, ArrowRight, Mail, MapPin, PhoneCall, LogIn } from 'lucide-react';
+import { Home, Info, Phone,ArrowRight, Mail, MapPin, PhoneCall, LogIn } from 'lucide-react';
+import bgImg from '../images/bgImg.jpg';
+import logo from '../images/logo.png';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ function HomePage() {
         <div className="container mx-auto px-6 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img src="https://www.shutterstock.com/image-illustration/people-logo-3-persons-260nw-307832234.jpg" alt="Logo" className="h-10 w-10 object-contain" />
+              <img src={logo} alt="Logo" className="h-10 w-10 object-contain" />
               <span className="ml-3 text-xl font-bold text-gray-800">CareerCatalyst</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -47,7 +49,7 @@ function HomePage() {
       </nav>
 
       {/* Main Content */}
-      <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(https://www.shutterstock.com/image-photo/career-acceleration-concept-personal-development-260nw-435949057.jpg)' }}>
+      <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${bgImg})` }}>
         {/* Hero Section */}
         <section id="home" className="min-h-screen pt-20">
           <div className="container mx-auto px-6 py-20">
